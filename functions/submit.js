@@ -19,7 +19,14 @@ export const onRequestPost = async ({ request, env }) => {
     }
 
     const arrayBuffer = await planilha.arrayBuffer();
-    const base64String = btoa(String.fromCharCode(...new Uint8Array(arrayBuffer)));
+    
+    // Conversão segura para Base64 (evita erro de Call Stack com arquivos grandes > 100kb)
+    const bytes = new Uint8Array(arrayBuffer);
+    let binary = '';
+    for (let i = 0; i < bytes.byteLength; i++) {
+        binary += String.fromCharCode(bytes[i]);
+    }
+    const base64String = btoa(binary);
 
     // Envio para o Resend usando a sua variável de ambiente
     const resendResponse = await fetch('https://api.resend.com/emails', {
