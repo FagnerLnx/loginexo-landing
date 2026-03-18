@@ -36,7 +36,7 @@ export const onRequestPost = async ({ request, env }) => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        from: 'LogiNexo <onboarding@resend.dev>', // Use onboarding para teste inicial
+        from: 'LogiNexo <contato@loginexo.com.br>', // Domínio verificado no Resend
         to: 'suporte@loginexo.com.br',
         subject: `Novo Diagnóstico: ${nome}`,
         html: `<p><strong>Nome:</strong> ${nome}</p><p><strong>E-mail:</strong> ${email}</p>`,
