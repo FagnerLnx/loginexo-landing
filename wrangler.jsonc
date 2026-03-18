@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "loginexo-landing",
+  "compatibility_date": "2025-09-27",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "loginexo_prod"
+  },
+  "compatibility_flags": [
+    "nodejs_compat"
+  ]
+}
